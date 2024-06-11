@@ -36,4 +36,6 @@ Route::get('/admin/movies/create', [MovieController::class, 'create']);
 
 Route::post('/admin/movies/store', [MovieController::class, 'store'])->name('admin.movies.store');
 
-Route::post('/debug', [MovieController::class, 'store'])->name('debug');
+Route::get('/admin/movies/{movie}/edit', [MovieController::class, 'edit'])->name('admin.movies.edit');
+
+Route::patch('/admin/movies/{movie}/update', [MovieController::class, 'update'])->name('admin.movies.update');
