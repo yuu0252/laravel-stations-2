@@ -39,3 +39,5 @@ Route::post('/admin/movies/store', [MovieController::class, 'store'])->name('adm
 Route::get('/admin/movies/{movie}/edit', [MovieController::class, 'edit'])->name('admin.movies.edit');
 
 Route::patch('/admin/movies/{movie}/update', [MovieController::class, 'update'])->name('admin.movies.update');
+
+Route::delete('/admin/movies/{movie}/destroy', [MovieController::class, 'destroy'])->name('admin.movies.destroy');

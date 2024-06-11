@@ -55,4 +55,11 @@ class MovieController extends Controller
 
         return redirect()->route('admin.movies');
     }
+
+    public function destroy(Movie $movie)
+    {
+        $movie->delete();
+
+        return redirect()->route('admin.movies')->with('flash_message', '映画を削除しました');
+    }
 }

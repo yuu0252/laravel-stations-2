@@ -7,7 +7,18 @@
     <title>Movies</title>
 </head>
 <body>
+    @if (session('flash_message'))
+        <p>{{ session('flash_message') }}</p>
+    @endif
     <table>
+        <tr>
+            <th>検索フォーム</th>
+            <td>
+                <form action="" method="GET">
+
+                </form>
+            </td>
+        </tr>
         @foreach ($movies as $movie)
         <tr>
             <th>{{$movie->title}}</th>
@@ -16,6 +27,13 @@
             <td>{{$movie->is_showing ? "上映中" : "上映予定"}}</td>
             <td>{{$movie->description}}</td>
             <td><a href="{{ route('admin.movies.edit', $movie) }}">編集</a></td>
+            <td>
+                <form action="{{ route('admin.movies.destroy', $movie)}}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit">削除</button>
+                </form>
+            </td>
         </tr>
         @endforeach
     </table>
